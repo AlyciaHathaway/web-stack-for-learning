@@ -1,69 +1,72 @@
 //函数参数的默认值
 
-// 1. arrow function
-
+// 1. 箭头函数 arrow function
 const another = function() {
 	// function body
 	return {
 		a: 'hello world'
 	}
-}
-// ==>
-const C = 'c';
+};
+// 等价于
 const s = () => {
-	const C = 's';
 	return {
 		a: 'hello world'
 	}
-}
+};
+
+// 2. const块级作用域
+const C = 'c';
+const apart = () => {
+	const C = 's'
+};
 
 // 一个function （入参 + 返回值）
-const pa = (...args) => {
-	console.log(args);
-	return args.reduce((pre,cur) => {
-		return pre+cur;
-	}, 0);
-};
-pa.apply(this, [1,2,45]);
-
-let a = [1,2,3];
-let [c, ...d] = a;
-console.log(d);
+// const pa = (...args) => {
+// 	console.log(args);
+// 	return args.reduce((pre,cur) => {
+// 		return pre+cur;
+// 	}, 0);
+// };
+// pa.apply(this, [1,2,45]);
+//
+// let a = [1,2,3];
+// let [c, ...d] = a;
+// console.log(d);
 
 
 // 参数 初始值
-function log(x, y = 'World') {
-  console.log(x, y);
-}
-log('hello'); // log('Hello') // Hello World
+// function log(x, y = 'World') {
+//   console.log(x, y);
+// }
+// log('hello'); // log('Hello') // Hello World
 
 
 //rest参数
-function add(a, b, ...values) {
-  console.log(values)
-}
-add(2, 5, 3) // 10
-
-console.log(5,...[1, 2, 3])
-
-const s = function(){
-	return () => {
-		console.log(this)
-	}
-};
-s.apply({a:1})()
+// function add(a, b, ...values) {
+//   console.log(values)
+// }
+// add(2, 5, 3) // 10
+//
+// console.log(5,...[1, 2, 3])
+//
+// const s = function(){
+// 	return () => {
+// 		console.log(this)
+// 	}
+// };
+// s.apply({a:1})()
 
 // //箭头函数 {}
 // var f = v => v;
 // var f1 = v=>{
 // 	console.log(this)
 // }
-var f3 = function(v){
-	//this
-	return v=>{
-		console.log(this);
-	}
-}
+// var f3 = function(v){
+// 	//this
+// 	return v=>{
+// 		console.log(this);
+// 	}
+// }
 
 // 箭头函数有几个使用注意点。
 
