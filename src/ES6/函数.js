@@ -1,37 +1,48 @@
 //函数参数的默认值
 
 // 1. 箭头函数 arrow function
-const another = function() {
-	// function body
-	return {
-		a: 'hello world'
-	}
-};
+// const another = function() {
+// 	// function body
+// 	return {
+// 		a: 'hello world'
+// 	}
+// };
 // 等价于
-const s = () => {
-	return {
-		a: 'hello world'
-	}
-};
+// const sexy = () => {
+// 	return {
+// 		a: 'hello world'
+// 	}
+// };
 
 // 2. const块级作用域
-const C = 'c';
-const apart = () => {
-	const C = 's'
-};
-
-// 一个function （入参 + 返回值）
-// const pa = (...args) => {
-// 	console.log(args);
-// 	return args.reduce((pre,cur) => {
-// 		return pre+cur;
-// 	}, 0);
+// const C = 'c';
+// const apart = () => {
+// 	const C = 's'
 // };
-// pa.apply(this, [1,2,45]);
-//
-// let a = [1,2,3];
-// let [c, ...d] = a;
-// console.log(d);
+
+// 3. 一个function （入参 + 返回值）
+// ES5方式
+// const pa = () => '1';
+// var s = fn;
+// // 多种function的执行方式
+// fn.apply(this, [argument]);
+// fn.call(this, 1,2,3,4);
+// fn(1,2,4);
+
+// ES6方式
+const pa = (...args) => {
+	console.log(args);
+	return args.reduce((pre, cur) => {
+		return pre+cur;
+	}, 0);
+};
+pa(1,2,45);
+
+let a = [1,2,3];
+// c和...d不可以交换位置
+let [c, ...d] = a;
+console.log(d);
+
 
 
 // 参数 初始值
