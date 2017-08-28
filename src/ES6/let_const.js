@@ -1,7 +1,6 @@
-// let 和 const
 
-//变量声明
-//ES5 var声明作用域问题
+// 1. 变量声明
+// ① ES5 var声明作用域问题
 // var s = 1;
 // var another = function() {
 // 	s = 2
@@ -24,7 +23,7 @@
 
 // //比对
 
-// 块级作用域
+// ② 块级作用域
 // function f1() {
 //   let n = 5;
 //   if (true) {
@@ -35,7 +34,7 @@
 // f1();
 
 
-//常量
+// 2. 常量
 // const C= 'C'; // readonly，不能重复赋值
 // C = 'Hello World';
 //
@@ -46,12 +45,12 @@
 // c.a = 2; // 不会报错，因为reference并没有变
 
 
-// //块级作用域返回值 do expression
+// 3. 块级作用域返回值 do expression
 // let x = do{
 // 	1
 // }
 
-// //const read only 
+// //const read only
 
 // const p = 1;
 
