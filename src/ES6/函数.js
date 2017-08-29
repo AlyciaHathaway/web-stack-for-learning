@@ -30,36 +30,49 @@
 // fn(1,2,4);
 
 // ES6方式
-const pa = (...args) => {
-	console.log(args);
-	return args.reduce((pre, cur) => {
-		return pre+cur;
-	}, 0);
-};
-pa(1,2,45);
-
-let a = [1,2,3];
-// c和...d不可以交换位置
-let [c, ...d] = a;
-console.log(d);
-
-
-
-// 参数 初始值
-// function log(x, y = 'World') {
-//   console.log(x, y);
-// }
-// log('hello'); // log('Hello') // Hello World
-
-
-//rest参数
-// function add(a, b, ...values) {
-//   console.log(values)
-// }
-// add(2, 5, 3) // 10
+// const pa = (...args) => {
+// 	console.log(args);
+// 	return args.reduce((pre, cur) => {
+// 		return pre+cur;
+// 	}, 0);
+// };
+// pa(1,2,45);
 //
-// console.log(5,...[1, 2, 3])
-//
+// let a = [1,2,3];
+// // c和...d不可以交换位置
+// let [c, ...d] = a;
+// console.log(d);
+
+
+
+// 4. 参数 初始值
+function log(x, y = 'World') {
+  console.log(x, y);
+}
+log('Hello'); // Hello World
+log('hello', 'alycia'); // hello alycia
+
+
+// 5. rest参数 用于获取函数的多余参数，这样就不需要使用arguments对象了
+function add(...values) {
+	let sum = 0;
+	for (var val of values) {
+		sum += val;
+	}
+	return sum
+}
+add(2, 5, 3); // 10
+
+function add2(a, b, ...values) {
+    let sum = 0;
+    for (var val of values) {
+        sum += val;
+    }
+    return sum
+}
+add2(2, 5, 3); // 3
+
+
 // const s = function(){
 // 	return () => {
 // 		console.log(this)
