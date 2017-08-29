@@ -46,39 +46,56 @@
 
 
 // 4. 参数 初始值
-function log(x, y = 'World') {
-  console.log(x, y);
-}
-log('Hello'); // Hello World
-log('hello', 'alycia'); // hello alycia
+// function log(x, y = 'World') {
+//   console.log(x, y);
+// }
+// log('Hello'); // Hello World
+// log('hello', 'alycia'); // hello alycia
 
 
 // 5. rest参数 用于获取函数的多余参数，这样就不需要使用arguments对象了
-function add(...values) {
-	let sum = 0;
-	for (var val of values) {
-		sum += val;
-	}
-	return sum
-}
-add(2, 5, 3); // 10
-
-function add2(a, b, ...values) {
-    let sum = 0;
-    for (var val of values) {
-        sum += val;
-    }
-    return sum
-}
-add2(2, 5, 3); // 3
-
-
-// const s = function(){
-// 	return () => {
-// 		console.log(this)
+// function add(...values) {
+// 	let sum = 0;
+// 	for (var val of values) {
+// 		sum += val;
 // 	}
-// };
-// s.apply({a:1})()
+// 	return sum
+// }
+// add(2, 5, 3); // 10
+//
+// function add2(a, b, ...values) {
+//     let sum = 0;
+//     for (var val of values) {
+//         sum += val;
+//     }
+//     return sum
+// }
+// add2(2, 5, 3); // 3
+
+
+// 6. 箭头函数this指向
+// ES5
+const s = function() {
+    console.log(this); // this指向window/global
+};
+s();
+s.apply({a:1}); // this指向{a:1}
+
+// ES6 箭头函数会绑定上下文，this将会指向我调用地方的this
+const s1 = ()=> {
+    console.log(this === global); // window/global
+};
+s1.apply({a:1}); // this指向window/global
+
+
+const s2 = function() {
+    return ()=> {
+        console.log(this) //箭头函数会绑定上下文的this，而s2的this指向{a:1}
+    }
+};
+s2.apply({a:1})(); // this指向{a:1}
+
+
 
 // //箭头函数 {}
 // var f = v => v;
