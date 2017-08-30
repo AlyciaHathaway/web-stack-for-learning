@@ -1,11 +1,11 @@
 
 
-//webpack/gulp ==> 处理require
+// import、export首先是一个IO，一般而言会通过webpack/gulp ==> 处理成require
 
-import  { a }   from './let_const.js';
-console.log('=------started')
+import  { a }   from './export.js';
+console.log('=------started');
 console.log(a);
-console.log('=------ ended')
+console.log('=------ ended');
 
 
 
