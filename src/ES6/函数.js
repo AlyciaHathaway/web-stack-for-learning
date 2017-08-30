@@ -75,25 +75,25 @@
 
 // 6. 箭头函数this指向
 // ES5
-const s = function() {
-    console.log(this); // this指向window/global
-};
-s();
-s.apply({a:1}); // this指向{a:1}
+// const s = function() {
+//     console.log(this); // this指向window/global
+// };
+// s();
+// s.apply({a:1}); // this指向{a:1}
 
 // ES6 箭头函数会绑定上下文，this将会指向我调用地方的this
-const s1 = ()=> {
-    console.log(this === global); // window/global
-};
-s1.apply({a:1}); // this指向window/global
-
-
-const s2 = function() {
-    return ()=> {
-        console.log(this) //箭头函数会绑定上下文的this，而s2的this指向{a:1}
-    }
-};
-s2.apply({a:1})(); // this指向{a:1}
+// const s1 = ()=> {
+//     console.log(this === global); // window/global
+// };
+// s1.apply({a:1}); // this指向window/global
+//
+//
+// const s2 = function() {
+//     return ()=> {
+//         console.log(this) //箭头函数会绑定上下文的this，而s2的this指向{a:1}
+//     }
+// };
+// s2.apply({a:1})(); // this指向{a:1}
 
 
 
