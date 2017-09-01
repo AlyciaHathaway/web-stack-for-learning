@@ -4,12 +4,13 @@ function* helloWorldGenerator() {
   yield 'hello';
   yield 'world';
   return 'ending';
-};
+}
+
 var hw = helloWorldGenerator();
 let a = hw.next();
 let b = hw.next();
 let c = hw.next();
-console.log(a,b,c,d)
+console.log(a,b,c,d);
 
 
 function* foo(x) {
@@ -18,10 +19,10 @@ function* foo(x) {
   return (x + y + z);
 }
 
-// var a = foo(5);
-// a.next() // Object{value:6, done:false}
-// a.next() // Object{value:NaN, done:false}
-// a.next() // Object{value:NaN, done:true}
+var s = foo(5);
+s.next(); // Object{value:6, done:false}
+s.next(); // Object{value:NaN, done:false}
+s.next(); // Object{value:NaN, done:true}
 
 
 // //通过next方法的参数，就有办法在 Generator 函数开始运行之后，继续向函数体内部注入值
